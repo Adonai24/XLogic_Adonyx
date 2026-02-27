@@ -1,0 +1,462 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+
+<title>Videos - XLogic Adonyx</title>
+
+<link rel="stylesheet" href="{% static 'css/Style.css' %}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="logo">XLogic Adonyx</div>
+
+<nav class="nav">
+
+<a href="{% url 'inicio' %}">Inicio</a>
+
+<a href="{% url 'sobre_mi' %}">Sobre Mí</a>
+
+<a href="{% url 'videos' %}" class="activo">Videos</a>
+
+<a href="{% url 'contacto' %}">Contacto</a>
+
+</nav>
+
+</header>
+
+
+
+<section class="videos-contenido">
+
+<h2>
+
+<i class="fas fa-video"></i>
+
+Lista de Videos
+
+</h2>
+
+
+
+<!-- REPRODUCTOR PRINCIPAL -->
+
+<div class="video-placeholder-grande">
+
+<h3 id="tituloPrincipal">
+
+Selecciona un video
+
+</h3>
+
+<video id="videoPrincipal"
+
+width="700"
+
+controls>
+
+<source id="sourcePrincipal">
+
+</video>
+
+</div>
+
+
+
+
+
+<!-- ================= PROGRAMACION ================= -->
+
+<div class="video-categoria">
+
+<div class="categoria-header"
+
+onclick="toggleCategoria('programacion')">
+
+<h3>
+
+<i class="fas fa-code"></i>
+
+PROGRAMACIÓN
+
+<span class="flecha"
+
+id="flecha-programacion">▼</span>
+
+</h3>
+
+</div>
+
+
+
+<div class="categoria-videos"
+
+id="programacion">
+
+
+
+{% for video in videos %}
+
+{% if video.categoria == 'programacion' %}
+
+
+
+<div class="video-placeholder-grande"
+
+onclick="reproducirVideo(
+
+'{{ video.archivo.url }}',
+
+'{{ video.titulo }}'
+
+)"
+
+style="cursor:pointer;">
+
+
+
+<h4>{{ video.titulo }}</h4>
+
+
+
+<video width="200">
+
+<source src="{{ video.archivo.url }}">
+
+</video>
+
+
+
+</div>
+
+
+
+{% endif %}
+
+{% endfor %}
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<!-- ================= CIRCUITOS ================= -->
+
+<div class="video-categoria">
+
+<div class="categoria-header"
+
+onclick="toggleCategoria('circuitos')">
+
+<h3>
+
+<i class="fas fa-microchip"></i>
+
+CIRCUITOS
+
+<span class="flecha"
+
+id="flecha-circuitos">▼</span>
+
+</h3>
+
+</div>
+
+
+
+<div class="categoria-videos"
+
+id="circuitos">
+
+
+
+{% for video in videos %}
+
+{% if video.categoria == 'circuitos' %}
+
+
+
+<div class="video-placeholder-grande"
+
+onclick="reproducirVideo(
+
+'{{ video.archivo.url }}',
+
+'{{ video.titulo }}'
+
+)"
+
+style="cursor:pointer;">
+
+
+
+<h4>{{ video.titulo }}</h4>
+
+
+
+<video width="200">
+
+<source src="{{ video.archivo.url }}">
+
+</video>
+
+
+
+</div>
+
+
+
+{% endif %}
+
+{% endfor %}
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- BASES DATOS -->
+
+<div class="video-categoria">
+
+<div class="categoria-header"
+
+onclick="toggleCategoria('bases_datos')">
+
+<h3>
+
+<i class="fas fa-database"></i>
+
+BASES DE DATOS
+
+<span class="flecha"
+
+id="flecha-bases_datos">▼</span>
+
+</h3>
+
+</div>
+
+
+
+<div class="categoria-videos"
+
+id="bases_datos">
+
+
+
+{% for video in videos %}
+
+{% if video.categoria == 'bases_datos' %}
+
+
+
+<div class="video-placeholder-grande"
+
+onclick="reproducirVideo(
+
+'{{ video.archivo.url }}',
+
+'{{ video.titulo }}'
+
+)"
+
+style="cursor:pointer;">
+
+
+
+<h4>{{ video.titulo }}</h4>
+
+
+
+<video width="200">
+
+<source src="{{ video.archivo.url }}">
+
+</video>
+
+
+
+</div>
+
+
+
+{% endif %}
+
+{% endfor %}
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- SISTEMAS -->
+
+<div class="video-categoria">
+
+<div class="categoria-header"
+
+onclick="toggleCategoria('sistemas')">
+
+<h3>
+
+<i class="fas fa-desktop"></i>
+
+SISTEMAS OPERATIVOS
+
+<span class="flecha"
+
+id="flecha-sistemas">▼</span>
+
+</h3>
+
+</div>
+
+
+
+<div class="categoria-videos"
+
+id="sistemas">
+
+
+
+{% for video in videos %}
+
+{% if video.categoria == 'sistemas' %}
+
+
+
+<div class="video-placeholder-grande"
+
+onclick="reproducirVideo(
+
+'{{ video.archivo.url }}',
+
+'{{ video.titulo }}'
+
+)"
+
+style="cursor:pointer;">
+
+
+
+<h4>{{ video.titulo }}</h4>
+
+
+
+<video width="200">
+
+<source src="{{ video.archivo.url }}">
+
+</video>
+
+
+
+</div>
+
+
+
+{% endif %}
+
+{% endfor %}
+
+
+
+</div>
+
+</div>
+
+
+
+
+</section>
+
+
+
+
+
+<footer class="footer">
+
+<div class="footer-left">
+
+© 2026 XLogic Adonyx
+
+</div>
+
+</footer>
+
+
+
+
+
+<script src="{% static 'js/1.js' %}"></script>
+
+
+
+
+<script>
+
+
+function reproducirVideo(url,titulo){
+
+const video = document.getElementById("videoPrincipal");
+
+const source = document.getElementById("sourcePrincipal");
+
+const tituloP = document.getElementById("tituloPrincipal");
+
+
+source.src = url;
+
+video.load();
+
+video.play();
+
+tituloP.innerHTML = titulo;
+
+
+window.scrollTo({
+
+top:200,
+
+behavior:'smooth'
+
+});
+
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>

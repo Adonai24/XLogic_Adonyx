@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XLogic Adonay</title>
+<link rel="stylesheet" href="{% static 'css/Style.css' %}">
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <header class="header">
+        <div class="logo">XLogic Adonay</div>
+
+        <nav class="nav">
+            <a href="{% url 'inicio' %}">Inicio</a>
+            <a href="{% url 'sobre_mi' %}">Sobre Mí</a>
+            <a href="{% url 'videos' %}">Videos</a>
+            <a href="{% url 'contacto' %}">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <section class="contenedor">
+
+        <div class="texto">
+            <p class="saludo">Hola, soy <span class="nombre">Jaim Adonai Gonzalez Lopez</span></p>
+
+            <p class="bienvenida">
+                Bienvenido a mi espacio personal<br>
+                donde compartiré mis trabajos, proyectos y así mismo<br>
+                mostrar en video lo dicho anterior.
+            </p>
+
+            <div class="botones">
+                <a class="btn" href="{% url 'videos' %}">VIDEOS</a>
+                <a class="btn" href="{% url 'contacto' %}">CONTACTAME</a>
+            </div>
+        </div>
+
+        <div class="imagen">
+<img src="{% static 'Imagenes/Imagen_de_WhatsApp_2025-12-04_a_las_21.46.53_63d3c2d3.jpg' %}">        </div>
+
+    </section>
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-left">
+        © 2026 XLogic Adonyx. Todos los derechos reservados.
+    </div>
+
+    <div class="footer-right">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+        <a href="#">Cookies</a>
+    </div>
+</footer>
+<script src="{% static 'js/1.js' %}"></script>
+</body>
+</html>

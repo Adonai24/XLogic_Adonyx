@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - XLogic Adonyx</title>
+    <link rel="stylesheet" href="{% static 'css/Style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- NAV -->
+    <header class="header">
+        <div class="logo">XLogic Adonyx</div>
+        <nav class="nav">
+            <a href="{% url 'inicio' %}">Inicio</a>
+            <a href="{% url 'sobre_mi' %}">Sobre Mí</a>
+            <a href="{% url 'videos' %}">Videos</a>
+            <a href="{% url 'contacto' %}" class="activo">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO -->
+    <div id="contacto-contenido">
+
+        <!-- LADO IZQUIERDO: Info -->
+        <div id="contacto-info">
+            <h2><i class="fas fa-envelope"></i> CONTACTO</h2>
+            <p id="contacto-descripcion">
+                ¿Quieres alguna atención personal? Claro puedes enviarme un mensaje y ponernos en contacto
+            </p>
+
+            <div id="contacto-datos">
+                <h3>CONTACTOS</h3>
+
+                <div class="dato-item">
+                    <div class="dato-icono">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="dato-texto">
+                        <h4>EMAIL</h4>
+                        <p>jaimnop24@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="dato-item">
+                    <div class="dato-icono">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="dato-texto">
+                        <h4>TELEFONO</h4>
+                        <p>+52 967 111 0864</p>
+                    </div>
+                </div>
+
+                <div class="dato-item">
+                    <div class="dato-icono">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="dato-texto">
+                        <h4>UBICACIÓN</h4>
+                        <p>San Cristobal de las Casas, Chiapas</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="redes-sociales">
+                <h4>Redes Sociales</h4>
+                <div class="redes-iconos">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- LADO DERECHO: Formulario -->
+        <div id="contacto-formulario">
+            <h2><i class="fas fa-paper-plane"></i> FORMULARIO</h2>
+
+        <form method="POST" action="{% url 'contacto' %}">
+        {% csrf_token %}
+
+            <label>NOMBRE</label>
+            <input type="text" name="nombre" required>
+
+            <label>EMAIL</label>
+            <input type="email" name="email" required>
+
+            <label>MENSAJE</label>
+            <textarea name="mensaje" required></textarea>
+
+    <button type="submit">ENVIAR MENSAJE</button>
+
+            </form>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-left">
+            © 2026 XLogic Adonyx. Todos los derechos reservados.
+        </div>
+        <div class="footer-right">
+            <a href="#">Privacidad</a>
+            <a href="#">Términos</a>
+            <a href="#">Cookies</a>
+        </div>
+    </footer>
+<script src="{% static 'js/1.js' %}"></script>
+</body>
+</html>

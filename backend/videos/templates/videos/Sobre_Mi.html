@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mí - XLogic Adonay</title>
+    <link rel="stylesheet" href="{% static 'css/Style.css' %}">
+</head>
+<body>
+
+    <!-- NAV -->
+    <header class="header">
+        <div class="logo">XLogic Adonay</div>
+
+        <nav class="nav">
+            <a href="{% url 'inicio' %}">Inicio</a>
+            <a href="{% url 'sobre_mi' %}" class="activo">Sobre Mí</a>
+            <a href="{% url 'videos' %}">Videos</a>
+            <a href="{% url 'contacto' %}">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO -->
+    <section class="contenido">
+
+        <h2>Sobre Mí</h2>
+
+        <p class="texto">
+            Actualmente soy estudiante en el Instituto Tecnológico de Comitán,<br>
+            cursando la ingeniería en sistemas computacionales.<br>
+            Apasionado por la programación, construir y manejar circuitos<br>
+            con Arduino Uno.
+        </p>
+
+        <!-- Experiencia -->
+        <div class="experiencia">
+            <h3>Mi Experiencia</h3>
+            <p>Durante mi formación en la carrera de Ingeniería, he adquirido habilidades en el desarrollo de software utilizando diversos lenguajes de programación y herramientas tecnológicas. He trabajado en la creación de sistemas aplicados a problemas reales, así como en el manejo e implementación de bases de datos.</p>
+            
+            <p>Además, cuento con conocimientos en la instalación y configuración de sistemas operativos como Linux, lo que me ha permitido comprender el funcionamiento interno de plataformas tecnológicas y optimizar su rendimiento según las necesidades del usuario.</p>
+            
+            <p>Paralelamente, he desarrollado un interés personal por la electrónica, especialmente en el diseño y armado de circuitos con distintos componentes. Este hobby complementa mi perfil profesional al unir la programación con el mundo físico, permitiéndome crear soluciones que integran software y hardware.</p>
+        </div>
+
+        <!-- Habilidades -->
+        <div class="habilidades">
+            <div class="habilidad-item">
+                <h4>Habilidades Técnicas</h4>
+                <ul>
+                    <li>Desarrollo de software con múltiples lenguajes</li>
+                    <li>Diseño e implementación de bases de datos</li>
+                    <li>Instalación y configuración de Linux</li>
+                    <li>Optimización de sistemas</li>
+                </ul>
+            </div>
+            
+            <div class="habilidad-item">
+                <h4>Electrónica y Hardware</h4>
+                <ul>
+                    <li>Diseño y armado de circuitos electrónicos</li>
+                    <li>Programación con Arduino Uno</li>
+                    <li>Integración de software y hardware</li>
+                    <li>Soluciones tecnológicas físicas</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Objetivo -->
+        <div class="objetivo">
+            <h3>Mi Objetivo</h3>
+            <p>Mi objetivo es seguir aprendiendo, experimentar con nuevas tecnologías y, en un futuro, compartir proyectos que conecten lo digital con lo electrónico para contribuir al desarrollo tecnológico y educativo.</p>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-left">
+            © 2026 XLogic Adonyx. Todos los derechos reservados.
+        </div>
+
+        <div class="footer-right">
+            <a href="#">Privacidad</a>
+            <a href="#">Términos</a>
+            <a href="#">Cookies</a>
+        </div>
+    </footer>
+<script src="{% static 'js/1.js' %}"></script>
+</body>
+</html>
