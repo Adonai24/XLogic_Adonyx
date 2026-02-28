@@ -29,6 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls), #  RUTA PARA EL PANEL DE ADMINISTRACION
     path('', include('videos.urls')), # RUTA PARA LOS VIDEOS, SE DEBE CREAR UN ARCHIVO urls.py DENTRO DE LA APLICACION VIDEOS
     path('contacto/', include('contacto.urls')), # RUTA PARA EL CONTACTO, SE DEBE CREAR UN ARCHIVO urls.py DENTRO DE LA APLICACION CONTACTO
+    path('', include('usuarios.urls')), # RUTA PARA LOS USUARIOS, SE DEBE CREAR UN ARCHIVO urls.py DENTRO DE LA APLICACION USUARIOS
 ]
 # PARA MOSTRAR VIDEOS Y ARCHIVOS MEDIA
 if settings.DEBUG:
