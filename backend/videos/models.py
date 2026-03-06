@@ -8,12 +8,11 @@ class Video(models.Model):
         ('bases_datos', 'Bases de Datos'),
         ('sistemas', 'Sistemas Operativos'),
     ]
+
     titulo = models.CharField(max_length=200)
-
-    archivo = models.FileField(upload_to='videos/')
-
-    categoria = models.CharField(max_length=20, choices=CATEGORIAS)
+    descripcion = models.TextField(blank=True)
+    categoria = models.CharField(max_length=50, choices=CATEGORIAS)
+    youtube_url = models.URLField()
 
     def __str__(self):
         return self.titulo
-    

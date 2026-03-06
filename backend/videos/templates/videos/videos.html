@@ -58,19 +58,21 @@ Selecciona un video
 
 </h3>
 
-<video id="videoPrincipal"
+<div id="videoPrincipal" style="margin-top:20px;">
 
+<iframe
+id="youtubePlayer"
 width="700"
+height="400"
+src=""
+frameborder="0"
+allowfullscreen>
 
-controls>
-
-<source id="sourcePrincipal">
-
-</video>
+</iframe>
 
 </div>
 
-
+</div>
 
 
 
@@ -79,7 +81,6 @@ controls>
 <div class="video-categoria">
 
 <div class="categoria-header"
-
 onclick="toggleCategoria('programacion')">
 
 <h3>
@@ -89,7 +90,6 @@ onclick="toggleCategoria('programacion')">
 PROGRAMACIÓN
 
 <span class="flecha"
-
 id="flecha-programacion">▼</span>
 
 </h3>
@@ -99,7 +99,6 @@ id="flecha-programacion">▼</span>
 
 
 <div class="categoria-videos"
-
 id="programacion">
 
 
@@ -113,11 +112,8 @@ id="programacion">
 <div class="video-placeholder-grande"
 
 onclick="reproducirVideo(
-
-'{{ video.archivo.url }}',
-
+'{{ video.youtube_url }}',
 '{{ video.titulo }}'
-
 )"
 
 style="cursor:pointer;">
@@ -128,11 +124,8 @@ style="cursor:pointer;">
 
 
 
-<video width="200">
-
-<source src="{{ video.archivo.url }}">
-
-</video>
+<img src="https://img.youtube.com/vi/{{ video.youtube_url|cut:'https://youtu.be/'|cut:'https://www.youtube.com/watch?v=' }}/0.jpg"
+width="200">
 
 
 
@@ -154,14 +147,11 @@ style="cursor:pointer;">
 
 
 
-
-
 <!-- ================= CIRCUITOS ================= -->
 
 <div class="video-categoria">
 
 <div class="categoria-header"
-
 onclick="toggleCategoria('circuitos')">
 
 <h3>
@@ -171,7 +161,6 @@ onclick="toggleCategoria('circuitos')">
 CIRCUITOS
 
 <span class="flecha"
-
 id="flecha-circuitos">▼</span>
 
 </h3>
@@ -181,7 +170,6 @@ id="flecha-circuitos">▼</span>
 
 
 <div class="categoria-videos"
-
 id="circuitos">
 
 
@@ -195,11 +183,8 @@ id="circuitos">
 <div class="video-placeholder-grande"
 
 onclick="reproducirVideo(
-
-'{{ video.archivo.url }}',
-
+'{{ video.youtube_url }}',
 '{{ video.titulo }}'
-
 )"
 
 style="cursor:pointer;">
@@ -210,11 +195,8 @@ style="cursor:pointer;">
 
 
 
-<video width="200">
-
-<source src="{{ video.archivo.url }}">
-
-</video>
+<img src="https://img.youtube.com/vi/{{ video.youtube_url|cut:'https://youtu.be/'|cut:'https://www.youtube.com/watch?v=' }}/0.jpg"
+width="200">
 
 
 
@@ -241,7 +223,6 @@ style="cursor:pointer;">
 <div class="video-categoria">
 
 <div class="categoria-header"
-
 onclick="toggleCategoria('bases_datos')">
 
 <h3>
@@ -251,7 +232,6 @@ onclick="toggleCategoria('bases_datos')">
 BASES DE DATOS
 
 <span class="flecha"
-
 id="flecha-bases_datos">▼</span>
 
 </h3>
@@ -261,7 +241,6 @@ id="flecha-bases_datos">▼</span>
 
 
 <div class="categoria-videos"
-
 id="bases_datos">
 
 
@@ -275,11 +254,8 @@ id="bases_datos">
 <div class="video-placeholder-grande"
 
 onclick="reproducirVideo(
-
-'{{ video.archivo.url }}',
-
+'{{ video.youtube_url }}',
 '{{ video.titulo }}'
-
 )"
 
 style="cursor:pointer;">
@@ -290,11 +266,8 @@ style="cursor:pointer;">
 
 
 
-<video width="200">
-
-<source src="{{ video.archivo.url }}">
-
-</video>
+<img src="https://img.youtube.com/vi/{{ video.youtube_url|cut:'https://youtu.be/'|cut:'https://www.youtube.com/watch?v=' }}/0.jpg"
+width="200">
 
 
 
@@ -321,7 +294,6 @@ style="cursor:pointer;">
 <div class="video-categoria">
 
 <div class="categoria-header"
-
 onclick="toggleCategoria('sistemas')">
 
 <h3>
@@ -331,7 +303,6 @@ onclick="toggleCategoria('sistemas')">
 SISTEMAS OPERATIVOS
 
 <span class="flecha"
-
 id="flecha-sistemas">▼</span>
 
 </h3>
@@ -341,7 +312,6 @@ id="flecha-sistemas">▼</span>
 
 
 <div class="categoria-videos"
-
 id="sistemas">
 
 
@@ -355,11 +325,8 @@ id="sistemas">
 <div class="video-placeholder-grande"
 
 onclick="reproducirVideo(
-
-'{{ video.archivo.url }}',
-
+'{{ video.youtube_url }}',
 '{{ video.titulo }}'
-
 )"
 
 style="cursor:pointer;">
@@ -370,11 +337,8 @@ style="cursor:pointer;">
 
 
 
-<video width="200">
-
-<source src="{{ video.archivo.url }}">
-
-</video>
+<img src="https://img.youtube.com/vi/{{ video.youtube_url|cut:'https://youtu.be/'|cut:'https://www.youtube.com/watch?v=' }}/0.jpg"
+width="200">
 
 
 
@@ -413,49 +377,7 @@ style="cursor:pointer;">
 
 
 
-
-
 <script src="{% static 'js/1.js' %}"></script>
-
-
-
-
-<script>
-
-
-function reproducirVideo(url,titulo){
-
-const video = document.getElementById("videoPrincipal");
-
-const source = document.getElementById("sourcePrincipal");
-
-const tituloP = document.getElementById("tituloPrincipal");
-
-
-source.src = url;
-
-video.load();
-
-video.play();
-
-tituloP.innerHTML = titulo;
-
-
-window.scrollTo({
-
-top:200,
-
-behavior:'smooth'
-
-});
-
-
-}
-
-
-</script>
-
-
 
 </body>
 

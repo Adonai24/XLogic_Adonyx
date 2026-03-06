@@ -404,6 +404,15 @@ PÁGINA VIDEOS (Videos.html)
     font-size: 0.85rem;
 }
 
+.video-placeholder-grande img{
+border-radius:10px;
+transition:0.3s;
+}
+
+.video-placeholder-grande img:hover{
+transform:scale(1.05);
+}
+
 /* ============================================
 PÁGINA CONTACTO (Contacto.html)
    ============================================ */

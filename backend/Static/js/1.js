@@ -48,3 +48,27 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 });
+
+function reproducirVideo(url, titulo){
+
+let videoID = "";
+
+if(url.includes("watch?v=")){
+    videoID = url.split("v=")[1];
+}
+else if(url.includes("youtu.be/")){
+    videoID = url.split("youtu.be/")[1];
+}
+
+let embed = "https://www.youtube.com/embed/" + videoID;
+
+document.getElementById("youtubePlayer").src = embed;
+
+document.getElementById("tituloPrincipal").innerHTML = titulo;
+
+window.scrollTo({
+top:200,
+behavior:'smooth'
+});
+
+}

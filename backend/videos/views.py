@@ -21,4 +21,6 @@ def videos(request):
 
     videos = Video.objects.all()
 
-    return render(request,'videos/videos.html',{'videos':videos})
+    return render(request, 'videos/videos.html', {
+        'videos': videos
+    })
