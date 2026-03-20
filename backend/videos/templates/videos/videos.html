@@ -54,10 +54,21 @@ Selecciona un video
 
 {% if videos %}
     {% with videos.0 as principal %}
-        <iframe id="youtubePlayer" width="560" height="315" src="https://www.youtube.com/embed/{{ principal.youtube_id }}?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe id="youtubePlayer" width="560" height="315" 
+        src="https://www.youtube.com/embed/{{ principal.youtube_id }}?rel=0" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     {% endwith %}
 {% else %}
-    <iframe id="youtubePlayer" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe id="youtubePlayer" 
+    width="560" height="315" 
+    src="" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 {% endif %}
 </div>
 </div>
@@ -229,8 +240,13 @@ style="cursor:pointer;">
 <div class="footer-left">
 © 2026 XLogic Adonyx
 </div>
-
+    <div class="footer-right">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+        <a href="#">Cookies</a>
+    </div>  
 </footer>
+
 
 
 
