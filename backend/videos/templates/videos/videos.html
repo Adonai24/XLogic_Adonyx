@@ -23,11 +23,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 <nav class="nav">
 
 <a href="{% url 'inicio' %}">Inicio</a>
-
 <a href="{% url 'sobre_mi' %}">Sobre Mí</a>
-
 <a href="{% url 'videos' %}" class="activo">Videos</a>
-
 <a href="{% url 'contacto' %}">Contacto</a>
 
 </nav>
@@ -39,11 +36,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 <section class="videos-contenido">
 
 <h2>
-
 <i class="fas fa-video"></i>
-
 Lista de Videos
-
 </h2>
 
 
@@ -53,25 +47,19 @@ Lista de Videos
 <div class="video-placeholder-grande">
 
 <h3 id="tituloPrincipal">
-
 Selecciona un video
-
 </h3>
 
 <div id="videoPrincipal" style="margin-top:20px;">
 
-<iframe
-id="youtubePlayer"
-width="700"
-height="400"
-src=""
-frameborder="0"
-allowfullscreen>
-
-</iframe>
-
+{% if videos %}
+    {% with videos.0 as principal %}
+        <iframe id="youtubePlayer" width="560" height="315" src="https://www.youtube.com/embed/{{ principal.youtube_id }}?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    {% endwith %}
+{% else %}
+    <iframe id="youtubePlayer" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+{% endif %}
 </div>
-
 </div>
 
 
@@ -84,66 +72,34 @@ allowfullscreen>
 onclick="toggleCategoria('programacion')">
 
 <h3>
-
 <i class="fas fa-code"></i>
-
 PROGRAMACIÓN
-
-<span class="flecha"
-id="flecha-programacion">▼</span>
-
+<span class="flecha" id="flecha-programacion">▼</span>
 </h3>
 
 </div>
 
-
-
-<div class="categoria-videos"
-id="programacion">
-
-
+<div class="categoria-videos" id="programacion">
 
 {% for video in videos %}
-
 {% if video.categoria == 'programacion' %}
 
-
-
 <div class="video-placeholder-grande"
-
-onclick="reproducirVideo(
-'{{ video.youtube_url }}',
-'{{ video.titulo }}'
-)"
-
+onclick="reproducirVideo('{{ video.youtube_id }}','{{ video.titulo }}')"
 style="cursor:pointer;">
-
-
 
 <h4>{{ video.titulo }}</h4>
 
-
-
-<img src="https://img.youtube.com/vi/{{ video.youtube_url|cut:'https://youtu.be/'|cut:'https://www.youtube.com/watch?v=' }}/0.jpg"
-width="200">
-
-
+<img src="https://img.youtube.com/vi/{{ video.youtube_id }}/0.jpg" width="200">
 
 </div>
-
-
 
 {% endif %}
-
 {% endfor %}
 
-
-
 </div>
 
 </div>
-
-
 
 
 
@@ -155,70 +111,38 @@ width="200">
 onclick="toggleCategoria('circuitos')">
 
 <h3>
-
 <i class="fas fa-microchip"></i>
-
 CIRCUITOS
-
-<span class="flecha"
-id="flecha-circuitos">▼</span>
-
+<span class="flecha" id="flecha-circuitos">▼</span>
 </h3>
 
 </div>
 
-
-
-<div class="categoria-videos"
-id="circuitos">
-
-
+<div class="categoria-videos" id="circuitos">
 
 {% for video in videos %}
-
 {% if video.categoria == 'circuitos' %}
 
-
-
 <div class="video-placeholder-grande"
-
-onclick="reproducirVideo(
-'{{ video.youtube_url }}',
-'{{ video.titulo }}'
-)"
-
+onclick="reproducirVideo('{{ video.youtube_id }}','{{ video.titulo }}')"
 style="cursor:pointer;">
-
-
 
 <h4>{{ video.titulo }}</h4>
 
-
-
-<img src="https://img.youtube.com/vi/{{ video.youtube_url|cut:'https://youtu.be/'|cut:'https://www.youtube.com/watch?v=' }}/0.jpg"
-width="200">
-
-
+<img src="https://img.youtube.com/vi/{{ video.youtube_id }}/0.jpg" width="200">
 
 </div>
-
-
 
 {% endif %}
-
 {% endfor %}
 
-
-
 </div>
 
 </div>
 
 
 
-
-
-<!-- BASES DATOS -->
+<!-- BASES DE DATOS -->
 
 <div class="video-categoria">
 
@@ -226,70 +150,38 @@ width="200">
 onclick="toggleCategoria('bases_datos')">
 
 <h3>
-
 <i class="fas fa-database"></i>
-
 BASES DE DATOS
-
-<span class="flecha"
-id="flecha-bases_datos">▼</span>
-
+<span class="flecha" id="flecha-bases_datos">▼</span>
 </h3>
 
 </div>
 
-
-
-<div class="categoria-videos"
-id="bases_datos">
-
-
+<div class="categoria-videos" id="bases_datos">
 
 {% for video in videos %}
-
 {% if video.categoria == 'bases_datos' %}
 
-
-
 <div class="video-placeholder-grande"
-
-onclick="reproducirVideo(
-'{{ video.youtube_url }}',
-'{{ video.titulo }}'
-)"
-
+onclick="reproducirVideo('{{ video.youtube_id }}','{{ video.titulo }}')"
 style="cursor:pointer;">
-
-
 
 <h4>{{ video.titulo }}</h4>
 
-
-
-<img src="https://img.youtube.com/vi/{{ video.youtube_url|cut:'https://youtu.be/'|cut:'https://www.youtube.com/watch?v=' }}/0.jpg"
-width="200">
-
-
+<img src="https://img.youtube.com/vi/{{ video.youtube_id }}/0.jpg" width="200">
 
 </div>
-
-
 
 {% endif %}
-
 {% endfor %}
 
-
-
 </div>
 
 </div>
 
 
 
-
-
-<!-- SISTEMAS -->
+<!-- SISTEMAS OPERATIVOS -->
 
 <div class="video-categoria">
 
@@ -297,65 +189,34 @@ width="200">
 onclick="toggleCategoria('sistemas')">
 
 <h3>
-
 <i class="fas fa-desktop"></i>
-
 SISTEMAS OPERATIVOS
-
-<span class="flecha"
-id="flecha-sistemas">▼</span>
-
+<span class="flecha" id="flecha-sistemas">▼</span>
 </h3>
 
 </div>
 
-
-
-<div class="categoria-videos"
-id="sistemas">
-
-
+<div class="categoria-videos" id="sistemas">
 
 {% for video in videos %}
-
 {% if video.categoria == 'sistemas' %}
 
-
-
 <div class="video-placeholder-grande"
-
-onclick="reproducirVideo(
-'{{ video.youtube_url }}',
-'{{ video.titulo }}'
-)"
-
+onclick="reproducirVideo('{{ video.youtube_id }}','{{ video.titulo }}')"
 style="cursor:pointer;">
-
-
 
 <h4>{{ video.titulo }}</h4>
 
-
-
-<img src="https://img.youtube.com/vi/{{ video.youtube_url|cut:'https://youtu.be/'|cut:'https://www.youtube.com/watch?v=' }}/0.jpg"
-width="200">
-
-
+<img src="https://img.youtube.com/vi/{{ video.youtube_id }}/0.jpg" width="200">
 
 </div>
-
-
 
 {% endif %}
-
 {% endfor %}
 
-
-
 </div>
 
 </div>
-
 
 
 
@@ -363,14 +224,10 @@ width="200">
 
 
 
-
-
 <footer class="footer">
 
 <div class="footer-left">
-
 © 2026 XLogic Adonyx
-
 </div>
 
 </footer>
@@ -380,5 +237,4 @@ width="200">
 <script src="{% static 'js/1.js' %}"></script>
 
 </body>
-
 </html>

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import MensajeContacto
+from .models import Contacto
 
 def contacto(request):
 
@@ -8,7 +8,7 @@ def contacto(request):
         email = request.POST.get("email")
         mensaje = request.POST.get("mensaje")
 
-        MensajeContacto.objects.create(
+        Contacto.objects.create(
             nombre=nombre,
             email=email,
             mensaje=mensaje

@@ -378,10 +378,10 @@ PÁGINA VIDEOS (Videos.html)
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease;
-}
+}   
 
 .categoria-videos.visible {
-    max-height: 300px;
+    max-height: none;
 }
 
 .video-placeholder-grande {

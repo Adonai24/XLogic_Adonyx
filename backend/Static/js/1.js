@@ -49,18 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function reproducirVideo(url, titulo){
+function reproducirVideo(id,titulo){
 
-let videoID = "";
-
-if(url.includes("watch?v=")){
-    videoID = url.split("v=")[1];
-}
-else if(url.includes("youtu.be/")){
-    videoID = url.split("youtu.be/")[1];
-}
-
-let embed = "https://www.youtube.com/embed/" + videoID;
+let embed = "https://www.youtube.com/embed/" + id + "?rel=0";
 
 document.getElementById("youtubePlayer").src = embed;
 

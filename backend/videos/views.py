@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .models import Video
 
-
 def inicio(request):
 
     return render(request,'videos/Index.html')
@@ -21,6 +20,8 @@ def videos(request):
 
     videos = Video.objects.all()
 
-    return render(request, 'videos/videos.html', {
-        'videos': videos
+    return render(request,"videos/videos.html",{
+        "videos":videos
     })
+    
+    
