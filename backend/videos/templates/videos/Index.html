@@ -18,6 +18,13 @@
             <a href="{% url 'sobre_mi' %}">Sobre Mí</a>
             <a href="{% url 'videos' %}">Videos</a>
             <a href="{% url 'contacto' %}">Contacto</a>
+
+            {% if user.is_authenticated and user.is_staff %}
+    <a href="/admin/" style="color: red; font-weight: bold;">
+        ⚙ Admin
+    </a>
+{% endif %}
+
         </nav>
     </header>
 
